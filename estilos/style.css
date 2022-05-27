@@ -1,0 +1,305 @@
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #113E5C;
+    --secundario: #295c7e;
+    --terciario: #09609b;
+    --fondo: #0F171E;
+    --boton: #5185A8;
+    --hover: #2CA5F5;
+    --gris: #e1e1e1;
+    --gris2: #c9c7c7;
+    --gris3: #d6d6d6;
+    --blanco: #ffffff;
+    --negro: #000;
+
+    --fw-bold: 700;
+    --fw-regular: 400;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */    
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    background-color: var(--fondo);
+    color: var(--blanco);
+}
+
+/************* Globales ***********/
+.contenedor{
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+h1, h2, h3, h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.6rem;
+    font-weight: var(--fw-bold);
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2.8rem;
+}
+h4 {
+    font-size: 2.2rem;
+    font-weight: var(--fw-bold);
+}
+img {
+    max-width: 100%;
+}
+
+/************* Utilidades ***********/
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+
+/************* HEADER *************/
+header {
+    height: 10rem;
+    background-color: var(--primario);
+    margin-bottom: 5rem;
+}
+
+header .contenedor{
+    height: 100%;
+    display: flex;    
+    align-items: center;
+}
+
+header .contenedor .logo{
+    display: flex;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+header .logo a {
+    color: var(--gris);
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+}
+
+header .contenedor .menu{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+header .contenedor .menu a,
+header .contenedor .menu p{
+    color: var(--blanco);
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: var(--fw-bold);
+    transition: color .2s;
+    cursor: pointer;
+}
+
+header .contenedor .menu > a:hover {
+    color: var(--hover);
+    transform: scale(1.1);
+}
+header .contenedor .menu div {
+    position: relative;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+header .contenedor .menu div ul {
+    display: none;
+}
+
+header .contenedor .menu div:hover  ul {
+    position: absolute;    
+    display: block;
+    width: 13rem;
+    top: 4.7rem;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: var(--blanco);
+    border-top: 2px solid var(--blanco);
+} 
+
+header .contenedor .menu div p b {
+    transform: rotate(180deg);
+}
+
+header .contenedor .menu div:hover  ul li {
+    list-style: none;
+}
+
+header .contenedor .menu div ul li:hover {
+    background-color: var(--terciario);
+    color: var(--blanco)!important;
+}
+
+header .contenedor .menu div ul li a {
+    display: block;
+    padding: .5rem 1rem;
+}
+
+
+
+
+/************* MAIN *************/
+main h2{
+    margin-bottom: 1rem;
+}
+
+.contenedor__peliculas{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+    gap: 2rem;
+    row-gap: 4rem;
+}
+
+.contenedor__peliculas .pelicula{
+    position: relative;
+    overflow: hidden;
+    background-color: var(--gris3);
+    border-radius: .5rem;
+    box-shadow: 0 0 .5rem var(--gris2);
+    transition: transform .2s;
+}
+
+.contenedor__peliculas .pelicula:hover{
+    transform: scale(1.05);
+}
+
+.contenedor__peliculas .pelicula a {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.contenedor__peliculas .pelicula h4,
+.contenedor__peliculas .pelicula p{
+    color: var(--negro); 
+    margin-left: 1rem;  
+}
+.contenedor__peliculas .pelicula h4 {
+    margin-top: 1.2rem;
+}
+.contenedor__peliculas .pelicula p{
+    font-size: 1.6rem;
+    font-weight: var(--fw-bold);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contenedor__peliculas .pelicula p b {
+    color: var(--secundario);
+    font-weight: var(--fw-bold);
+}
+
+/************* PAG INFO PELICULA *****************/
+.info__pelicula{
+    background-color: var(--gris3);
+    display: grid;
+    color : var(--negro);
+    grid-template-columns: 4fr 6fr;
+    column-gap: 5rem;
+    row-gap: 4rem;
+
+    margin-bottom: 5rem;
+    padding: 2rem;
+    border-radius: .5rem;
+}
+
+.info__pelicula-descripcion h2{
+    color: var(--terciario);
+    text-align: center;   
+}
+.info__pelicula-descripcion hr{
+    margin-bottom: 3rem;
+}
+
+
+
+.info__pelicula-descripcion h4{
+    color: var(--primario);
+    margin-bottom: .5rem;
+}
+
+.info__pelicula-descripcion p{
+    font-size: 1.6rem;
+    margin-bottom: 1.3rem;
+}
+
+.info__pelicula-descripcion .boton{
+    display: inline-block;
+    background-color: var(--boton);
+    color: var(--blanco);
+    font-weight: var(--fw-bold);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    text-decoration: none;
+    transition: background-color .2s;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+
+.info__pelicula-descripcion .boton:hover{
+    background-color: var(--hover);
+}
+   
+/************* PAG. ESTRENOS *************/
+
+.estrenos {
+    position: relative;
+}
+
+.estrenos__etiqueta{
+    position: absolute;
+    top: -1.5rem;
+    left: -1rem;    
+    background-color: var(--hover);
+    padding: .3rem 1rem;
+    border-radius: .5rem 0 .5rem 0;
+}
+/************* FOOTER *************/
+footer{
+    margin-top: 7rem;
+    background-color: var(--primario);
+    padding: 2rem;
+    color: var(--blanco);
+    font-size: 1.6rem;
+    font-weight: var(--fw-bold);
+    text-align: center;
+}
