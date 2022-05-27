@@ -16,7 +16,7 @@
     <header class="header">
         <div class="contenedor">
             <h1 class="logo">
-                <a href="index.php">Peli-Express</a>
+                <a href="index.php"><img src="img/logo.png" style="width: 80px;" alt=""></a>
             </h1>
             <nav class="menu">
                 <a href="index.php">Home</a>
