@@ -2,7 +2,7 @@
 $nombre  = $_GET['nombre'];
 $output = `swipl -s T4Proyecto.pl -g "clic('$nombre'). -t halt."`;
 
-$info = explode("*", $output);
+$info = explode("+", $output);
 $recom = `swipl -s T4Proyecto.pl -g "recomendaciones('$nombre', '$info[2]'). -t halt."`;
 $peliculasRecomendadas = explode("/", $recom);
 
@@ -29,7 +29,7 @@ require_once "components/header.php";
                 <p><?php echo $info[7] ?></p>
                 <h4>Precio:</h4>
                 <p><?php echo $info[1] ?></p>
-                <a class="boton" href="https://www.amazon.com/" target="_blank">Comprar</a>
+                <a class="boton" href="<?php echo $info[8] ?>" target="_blank">Comprar</a>
             </div>
         </section>
 
@@ -37,7 +37,7 @@ require_once "components/header.php";
         <hr>
         <section class="contenedor__peliculas">
             <?php foreach ($peliculasRecomendadas as $i => $infoPelicula) {
-                $pelicula = explode("*", $infoPelicula);
+                $pelicula = explode("+", $infoPelicula);
                 if ($i == 4) break; ?>
                 <article class="pelicula">
                     <a href="clic.php?nombre=<?php echo $pelicula[0] ?>">

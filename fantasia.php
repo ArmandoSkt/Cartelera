@@ -10,7 +10,7 @@ require_once("components/header.php");
         <hr>
         <section class="contenedor__peliculas">            
         <?php foreach ($peliculas as $i => $infoPelicula) {
-                $pelicula = explode("*", $infoPelicula);
+                $pelicula = explode("+", $infoPelicula);
                 if (count($pelicula) == 1) break;
                 if ($i < 10) { ?>
                     <article class="pelicula">
